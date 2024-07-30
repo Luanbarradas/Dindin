@@ -2,8 +2,8 @@
   padding: 1.5rem;
   margin: auto;
   background-color: var(--PRIMARY_LIGHT);
-  height: 37.5rem;
-  width: 25rem;
+  height: 40rem;
+  width: 26rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,16 +13,6 @@
   align-self: center;
   color: var(--SECONDARY_BLUE);
 }
-
-/* button {
-  background-color: var(--SECONDARY_BLUE);
-  border: none;
-  border-radius: 0.3rem;
-  padding: 1rem;
-  color: var(--PRIMARY_LIGHT);
-  font-weight: 600;
-  font-size: 0.875rem;
-} */
 
 input {
   border-radius: 0.3rem;
