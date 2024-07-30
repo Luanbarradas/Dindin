@@ -1,2 +1,5 @@
 .bg_main {
+  background-color: var(--PRIMARY_LIGHT);
+  height: 100vh;
+  border-radius: 4rem 4rem 0 0;
 }

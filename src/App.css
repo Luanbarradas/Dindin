@@ -3,6 +3,7 @@
 
   --PRIMARY_GRAY: #e4f2fd;
   --SECONDARY_GRAY: #b9b9b9;
+  --INPUT_GRAY: #555555;
 
   --PRIMARY_BLUE: #05ede3;
   --SECONDARY_BLUE: #6460fb;
@@ -17,16 +18,26 @@
 
   --FONT_COLOR: #000000;
 
-  --MAIN_FONT: "Public Sans", Arial, Helvetica, sans-serif;
-  --SECOND_FONT: "Ibarra Real Nova", Times, "Times New Roman", serif;
+  --PRIMARY_FONT: "Public Sans", Arial, Helvetica, sans-serif;
+  --SECONDARY_FONT: "Ibarra Real Nova", Times, "Times New Roman", serif;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font: var(--MAIN_FONT);
+  border: 0;
+  font-size: 100%;
+  font-family: var(--PRIMARY_FONT);
+}
+
+body {
+  list-style-type: none;
+
+  background: linear-gradient(
+    to right,
+    var(--PRIMARY_BLUE),
+    var(--SECONDARY_BLUE)
+  );
 }
 
 a {
@@ -38,7 +49,50 @@ button {
   cursor: pointer;
 }
 
-body {
-  background-color: var(--MAIN-BACKGROUND);
-  color: var(--MAIN-PINK);
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* Global css class */
+
+.default_button {
+  background-color: var(--SECONDARY_BLUE);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  color: var(--PRIMARY_LIGHT);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form_title {
+  font-size: 1.75rem;
+  align-self: center;
+  color: var(--SECONDARY_BLUE);
+}
+
+input {
+  border-radius: 0.3rem;
+  border: solid var(--INPUT_GRAY) 0.05rem;
+  resize: none;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--SECONDARY_BLUE);
+}
+
+label {
+  font-size: 1.125rem;
 }

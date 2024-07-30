@@ -1,0 +1,10 @@
+.form_style {
+  padding: 1.5rem;
+  margin: auto;
+  background-color: var(--PRIMARY_LIGHT);
+  height: 25rem;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
