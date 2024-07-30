@@ -95,4 +95,5 @@ input:focus {
 
 label {
   font-size: 1.125rem;
+  color: var(--FONT_COLOR);
 }

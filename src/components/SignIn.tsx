@@ -5,9 +5,11 @@ import styles from "./SignIn.module.css";
 
 export const SignIn: React.FC = () => {
   return (
-    <>
-      <div>
-        <h1>Controle suas finanças, sem planilha chata.</h1>
+    <div className={styles.container_login}>
+      <div className={styles.presentation_login}>
+        <h1>
+          Controle suas <span>finanças</span>, sem planilha chata.
+        </h1>
         <p>
           Organizar as suas finanças nunca foi tão fácil, com o DINDIN, você tem
           tudo num único lugar e em um clique de distância.
@@ -22,8 +24,8 @@ export const SignIn: React.FC = () => {
         <label htmlFor="">Senha</label>
         <input type="password" />
 
-        <button className="default_button">Entrar</button>
+        <button className="default_button signUp_button">Entrar</button>
       </form>
-    </>
+    </div>
   );
 };
