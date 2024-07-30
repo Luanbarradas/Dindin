@@ -1,0 +1,44 @@
+:root {
+  --PRIMARY_LIGHT: #ffffff;
+
+  --PRIMARY_GRAY: #e4f2fd;
+  --SECONDARY_GRAY: #b9b9b9;
+
+  --PRIMARY_BLUE: #05ede3;
+  --SECONDARY_BLUE: #6460fb;
+  --DARK_BLUE: #000a4a;
+
+  --REGISTRATION_AREA_BLUE: #3a9ff1;
+  --REGISTRATION_AREA_RED: #ff576b;
+
+  --DEBT_ORANGE: #fa8c10;
+
+  --MAIN_PINK: #ff57d3; /* n sei onde vai essa cor mas ta no figma */
+
+  --FONT_COLOR: #000000;
+
+  --MAIN_FONT: "Public Sans", Arial, Helvetica, sans-serif;
+  --SECOND_FONT: "Ibarra Real Nova", Times, "Times New Roman", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font: var(--MAIN_FONT);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--MAIN-BACKGROUND);
+  color: var(--MAIN-PINK);
+}

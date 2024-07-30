@@ -1,0 +1,21 @@
+.bg_header {
+  padding: 1rem 2rem;
+  background-color: var(--PRIMARY_BLUE);
+  background: linear-gradient(
+    to right,
+    var(--PRIMARY_BLUE),
+    var(--SECONDARY_BLUE)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--PRIMARY_LIGHT);
+}
+
+.icons_header {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
