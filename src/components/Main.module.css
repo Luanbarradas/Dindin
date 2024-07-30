@@ -1,4 +1,14 @@
 .bg_main {
+    height: 91vh;
+    background: url('../assets/bg.svg') no-repeat center center,
+    linear-gradient(
+        to right, 
+        var(--PRIMARY_BLUE), 
+        var(--SECONDARY_BLUE)
+        );
+    background-size: cover;
+     
+
   background-color: var(--PRIMARY_LIGHT);
   height: 100vh;
   border-radius: 4rem 4rem 0 0;
