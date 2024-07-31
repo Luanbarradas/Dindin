@@ -3,6 +3,6 @@
   height: 100vh;
   background: url("../assets/bg.svg") no-repeat center center,
     linear-gradient(to right, var(--PRIMARY_BLUE), var(--SECONDARY_BLUE));
-  background-size: auto, cover;
+  background-size: cover;
   border-radius: 4rem 4rem 0 0;
 }

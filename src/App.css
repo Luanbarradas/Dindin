@@ -28,6 +28,7 @@
   border: 0;
   font-size: 100%;
   font-family: var(--PRIMARY_FONT);
+  box-sizing: border-box;
 }
 
 body {
