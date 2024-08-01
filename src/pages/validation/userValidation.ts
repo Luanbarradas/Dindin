@@ -16,10 +16,10 @@ export const signUpValidationSchema = Yup.object().shape({
 
 export const signInValidationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Email inválido")
-    .required("* Todos os campos são obrigatórios"),
+    .required("* Todos os campos são obrigatórios")
+    .email("Email inválido"),
   password: Yup.string()
+    .required("* Todos os campos são obrigatórios")
     .min(6, "")
-    .max(8, "")
-    .required("* Todos os campos são obrigatórios"),
+    .max(8, ""),
 });

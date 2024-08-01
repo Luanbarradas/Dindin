@@ -1,6 +1,7 @@
 .container_login {
+  margin-top: 5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: var(--PRIMARY_LIGHT);
 }
 

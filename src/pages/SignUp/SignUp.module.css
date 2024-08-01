@@ -2,7 +2,7 @@
   padding: 1.5rem;
   margin: auto;
   background-color: var(--PRIMARY_LIGHT);
-  height: 40rem;
+  height: 38rem;
   width: 26rem;
   display: flex;
   flex-direction: column;
@@ -28,9 +28,4 @@ input:focus {
 
 a {
   font-size: 0.875rem;
-}
-
-p {
-  font-size: 0.875rem;
-  color: var(--REGISTRATION_AREA_RED);
 }

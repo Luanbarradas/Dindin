@@ -1,14 +1,10 @@
-import { Home } from "./pages/Home/Home";
-// import { SignIn } from "./pages/SignIn/SignIn";
-// import { SignUp } from "./pages/SignUp/SignUp";
-// import { Header } from "./components/Header";
-
 import "./App.css";
+import { AppRoutes } from "./AppRoutes";
 
 function App() {
   return (
     <>
-      <Home />
+      <AppRoutes />
     </>
   );
 }
