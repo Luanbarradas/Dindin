@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../App.css";
+import "../../App.css";
 import styles from "./SignUp.module.css";
 
 export const SignUp: React.FC = () => {

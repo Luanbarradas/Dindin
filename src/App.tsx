@@ -1,20 +1,16 @@
-import React from "react";
+import { Home } from "./pages/Home/Home";
+// import { SignIn } from "./pages/SignIn/SignIn";
+// import { SignUp } from "./pages/SignUp/SignUp";
+// import { Header } from "./components/Header";
+
 import "./App.css";
 
-import { Header } from "./components/Header";
-import { Main } from "./components/Main";
-// import { SignUp } from "./components/SignUp";
-// import { SignIn } from "./components/SignIn";
-
-const App: React.FC = () => {
+function App() {
   return (
     <>
-      <Header />
-      <Main />
-
-      {/* <SignIn /> */}
+      <Home />
     </>
   );
-};
+}
 
 export default App;
