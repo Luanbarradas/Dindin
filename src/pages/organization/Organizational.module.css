@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  .form_container {
+    width: 964px;
+    height: 327px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .form_container h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .form_container label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form_container input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form_container button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form_container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .summary_container {
+    width: 300px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .summary_container h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .summary_table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+  }
+  
+  .summary_table td {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .add_button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--SECONDARY_BLUE);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .add_button:hover {
+    background-color: var( --PRIMARY_BLUE);
+  }
+  
