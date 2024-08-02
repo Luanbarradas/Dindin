@@ -1,58 +1,82 @@
-import React from "react";
-import styles from "./Organizational.module.css";
+import '../../App.css';
+import pecil from '../../assets/pencil.svg';
+import bin from '../../assets/bin.svg';
+import triangulo from '../../assets/triangulo.svg';
+import { useEffect, useState } from 'react';
+import { TabelaProps } from '../../interfaces/Transaction';
 
-export const OrganizationalCRUD: React.FC = () => {
+
+export const Tabela = ({ transacao, setTransacao, setEditRegister, setCurrentRegister }: TabelaProps) => {
+  const [idTransacao, setIdTransacao] = useState<number | null>(null);
+  const [idEditTransacao, setIdEditTransacao] = useState<number | null>(null);
+
+  const handleData = (data: string) => {
+    const date = new Date(data).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+    return date;
+  };
+
+  const handleGetDay = (data: string) => {
+    const daysOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'sábado', 'Domingo'];
+    const date = new Date(data);
+    const day = date.getDay();
+    return daysOfWeek[day];
+  };
+
+  const handleDeleteItem = (event: number) => {
+    setIdTransacao(event);
+  };
+
+  const handleEditRegister = (event: number) => {
+    setIdEditTransacao(event);
+    setEditRegister(true);
+  };
+
+  useEffect(() => {
+    if (idTransacao !== null) {
+      setTransacao(transacao.filter((transacao) => transacao.id !== idTransacao));
+      setIdTransacao(null);
+    }
+
+    if (idEditTransacao !== null) {
+      setCurrentRegister(transacao.find((transacao) => transacao.id === idEditTransacao));
+    }
+  }, [idTransacao, idEditTransacao, setTransacao, setCurrentRegister, transacao]);
+
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.form_container}>
-          <h3>Registrar Transação</h3>
-          <form>
-            <label htmlFor="date">Data</label>
-            <input type="date" id="date" required />
-
-            <label htmlFor="day">Dia da Semana</label>
-            <input type="text" id="day" placeholder="Dia da Semana" required />
-
-            <label htmlFor="description">Descrição</label>
-            <input
-              type="text"
-              id="description"
-              placeholder="Descrição"
-              required
-            />
-
-            <label htmlFor="category">Categoria</label>
-            <input type="text" id="category" placeholder="Categoria" required />
-
-            <label htmlFor="value">Valor</label>
-            <input type="number" id="value" placeholder="Valor" required />
-
-            <button type="submit">Adicionar Registro</button>
-          </form>
-        </div>
-
-        <div className={styles.summary_container}>
-          <h3>Resumo</h3>
-          <table className={styles.summary_table}>
-            <tbody>
-              <tr>
-                <td>Entradas:</td>
-                <td>R$ 0,00</td>
-              </tr>
-              <tr>
-                <td>Saídas:</td>
-                <td>R$ 0,00</td>
-              </tr>
-              <tr>
-                <td>Saldo:</td>
-                <td>R$ 0,00</td>
-              </tr>
-            </tbody>
-          </table>
-          <button className={styles.add_button}>Adicionar Registro</button>
-        </div>
-      </div>
-    </>
+    <div className='container-table'>
+      <table>
+        <thead>
+          <tr>
+            <th scope='col' className='data-th-txt'>
+              Data
+              <img src={triangulo} alt='icone reorganizar por data' />
+            </th>
+            <th>Dia da Semana</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {transacao.map((transacao) => (
+            <tr key={transacao.id}>
+              <td>{handleData(transacao.data)}</td>
+              <td>{handleGetDay(transacao.data)}</td>
+              <td className='table-description'>{transacao.descricao}</td>
+              <td className='table-category'>{transacao.categoria}</td>
+              <td className='col-value' style={{ color: transacao.saida ? 'var(--DEBT_ORANGE)' : 'var(--SECONDARY_BLUE)' }}>
+                R$ {transacao.valor}
+              </td>
+              <td className='edit-icon'>
+                <img src={pecil} alt="ícone de editar" style={{ cursor: 'pointer' }} onClick={() => handleEditRegister(transacao.id)} />
+                <img src={bin} alt="ícone de deletar" style={{ marginLeft: '13px', cursor: 'pointer' }} onClick={() => handleDeleteItem(transacao.id)} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
