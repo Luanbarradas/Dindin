@@ -7,8 +7,12 @@ import { SignInData } from "../../interfaces/index";
 import "../../App.css";
 import styles from "./SignIn.module.css";
 import { EntryHeader } from "../../components/EntryHeader";
+import api from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export const SignIn: React.FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -17,9 +21,23 @@ export const SignIn: React.FC = () => {
     resolver: yupResolver(signInValidationSchema),
   });
 
-  const onSubmit: SubmitHandler<SignInData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<SignInData> = async (inputsValue) => {
+    try {
+      const { data } = await api.post("/usuarios", {
+        email: inputsValue.email,
+        senha: inputsValue.password,
+      });
+
+      if (data) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.usuarios));
+        navigate("/");
+      }
+    } catch (error) {
+      alert("Ocorreu um erro");
+    }
   };
+
   return (
     <>
       <div className="bg_entry">

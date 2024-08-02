@@ -7,8 +7,12 @@ import { SignUpData } from "../../interfaces/index";
 import "../../App.css";
 import styles from "./SignUp.module.css";
 import { EntryHeader } from "../../components/EntryHeader";
+import api from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export const SignUp: React.FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -17,15 +21,28 @@ export const SignUp: React.FC = () => {
     resolver: yupResolver(signUpValidationSchema),
   });
 
-  const onSubmit: SubmitHandler<SignUpData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<SignUpData> = async (inputsValue) => {
+    try {
+      const { data } = await api.post("/usuarios", {
+        nome: inputsValue.name,
+        email: inputsValue.email,
+        senha: inputsValue.password,
+      });
+
+      if (data) {
+        alert("Cadastrado com sucesso");
+        navigate("/signin");
+      }
+    } catch (error) {
+      alert("Ocorreu um erro");
+    }
   };
 
   return (
     <>
       <div className="bg_entry">
         <EntryHeader />
-        <form className={styles.form_style} action="">
+        <form className={styles.form_style} onSubmit={handleSubmit(onSubmit)}>
           <h1 className="form_title">Cadastre-se</h1>
 
           <label htmlFor="name">Nome</label>

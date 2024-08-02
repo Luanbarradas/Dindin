@@ -114,11 +114,10 @@ label {
   background-size: cover;
 } */
 
-/* .bg_home {
+.bg_home {
   background-color: var(--PRIMARY_LIGHT);
   border-radius: 4rem 4rem 0 0;
 }
-
 
 .bg_header {
   margin: 1rem 2rem;
@@ -127,14 +126,6 @@ label {
   justify-content: space-between;
   color: var(--PRIMARY_LIGHT);
 }
-
-.icons_header {
-  width: 200px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-} */
 
 .container_header {
   display: flex;
