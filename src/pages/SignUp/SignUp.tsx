@@ -1,12 +1,12 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signUpValidationSchema } from "../validation/userValidation";
+import { signUpValidationSchema } from "../../services/userValidation";
 import { SignUpData } from "../../interfaces/index";
 
-import "../../App.css";
+import "../../Global.css";
 import styles from "./SignUp.module.css";
-import { EntryHeader } from "../../components/EntryHeader";
+import { EntryHeader } from "../../components/Header/HeaderEntry/HeaderEntry";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 

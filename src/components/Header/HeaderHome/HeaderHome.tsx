@@ -1,10 +1,10 @@
 import React from "react";
 
-import logo from "../assets/logo.svg";
-import userIcon from "../assets/account_user_person_profile_avatar_icon.svg";
-import exitIcon from "../assets/exit-icon.svg";
+import logo from "../../../assets/logo.svg";
+import userIcon from "../../../assets/account_user_person_profile_avatar_icon.svg";
+import exitIcon from "../../../assets/exit-icon.svg";
 
-import styles from "./HomeHeader.module.css";
+import styles from "./HeaderHome.module.css";
 
 export const HomeHeader: React.FC = () => {
   return (

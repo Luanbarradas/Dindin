@@ -64,6 +64,23 @@ ul {
   list-style: none;
 }
 
+input {
+  border-radius: 0.3rem;
+  border: solid var(--INPUT_GRAY) 0.05rem;
+  resize: none;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--SECONDARY_BLUE);
+}
+
+label {
+  font-size: 1.125rem;
+  color: var(--FONT_COLOR);
+}
+
 /* Global css class */
 
 .default_button {
@@ -80,23 +97,6 @@ ul {
   font-size: 1.75rem;
   align-self: center;
   color: var(--SECONDARY_BLUE);
-}
-
-input {
-  border-radius: 0.3rem;
-  border: solid var(--INPUT_GRAY) 0.05rem;
-  resize: none;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-input:focus {
-  border-color: var(--SECONDARY_BLUE);
-}
-
-label {
-  font-size: 1.125rem;
-  color: var(--FONT_COLOR);
 }
 
 .erros_form {
