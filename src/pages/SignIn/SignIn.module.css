@@ -1,5 +1,5 @@
 .container_login {
-  margin-top: 5rem;
+  margin: 6rem 4rem;
   display: flex;
   justify-content: space-between;
   color: var(--PRIMARY_LIGHT);
