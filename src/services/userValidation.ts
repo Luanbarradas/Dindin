@@ -20,6 +20,6 @@ export const signInValidationSchema = Yup.object().shape({
     .email("Email inválido"),
   password: Yup.string()
     .required("* Todos os campos são obrigatórios")
-    .min(6, "")
-    .max(8, ""),
+    .min(6, "A senha deve ter pelo menos 6 caracteres")
+    .max(8, "A senha deve ter no máximo 8 caracteres"),
 });

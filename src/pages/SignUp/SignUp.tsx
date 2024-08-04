@@ -22,7 +22,7 @@ export const SignUp: React.FC = () => {
 
   const onSubmit: SubmitHandler<SignUpData> = async (inputsValue) => {
     try {
-      const { data } = await api.post("/usuarios", {
+      const { data } = await api.post("/usuario", {
         nome: inputsValue.name,
         email: inputsValue.email,
         senha: inputsValue.password,
@@ -71,7 +71,7 @@ export const SignUp: React.FC = () => {
           Cadastrar
         </button>
 
-        <a className={styles.link_singIn} href="#">
+        <a className={styles.link_singIn} href="/signin">
           Já tem cadastro? Clique aqui!
         </a>
       </form>
