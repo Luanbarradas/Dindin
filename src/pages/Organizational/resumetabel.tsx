@@ -1,36 +1,26 @@
 import { useState, useEffect } from "react";
 import "./resumetabel.css";
 import { ResumeTableProps } from "../../interfaces/Transaction";
-import axios from "axios";
-import { getItem } from "../../services/api";
 
 export const ResumeTable = ({ transacao }: ResumeTableProps) => {
     const [entrada, setEntrada] = useState<number>(0);
     const [saida, setSaida] = useState<number>(0);
 
-    const token = getItem("token");
-
     useEffect(() => {
-        const fetchResumo = async () => {
-            try {
-                const response = await axios.get(
-                    "https://desafio-backend-03-dindin.pedagogico.cubos.academy/transacao/extrato",
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-                setEntrada(Number(response.data.entrada.toFixed(2)));
-                setSaida(Number(response.data.saida.toFixed(2)));
-            } catch (error) {
-                console.error("Erro ao buscar resumo:", error);
+        let totalEntrada = 0;
+        let totalSaida = 0;
+
+        transacao.forEach((item) => {
+            if (item.tipo === 'entrada') {
+                totalEntrada += Number(item.valor);
+            } else if (item.tipo === 'saida') {
+                totalSaida += Number(item.valor);
             }
-        };
+        });
 
-        fetchResumo();
-    }, [token]);
-
+        setEntrada(Number(totalEntrada.toFixed(2)));
+        setSaida(Number(totalSaida.toFixed(2)));
+    }, [transacao]);
 
     const saldo = entrada - saida;
 

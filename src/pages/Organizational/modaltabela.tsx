@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../registerModal/AddRegisterModal.css";
-import "./EditRegisterModal.css";
+import "./addmodaltabel.css";
+import "./modaltabela.css";
 import { EditCategoria, EditRegisterModalProps } from "../../interfaces/Transaction";
 import { NumericFormat } from "react-number-format";
 import { getItem } from "../../services/api";
