@@ -35,3 +35,29 @@ function ProtectedRoutes() {
   const token = localStorage.getItem("token");
   return token ? <Outlet /> : <Navigate to="/signin" />;
 }
+
+// interface PrivateProps {
+//   Item: React.ComponentType;
+// }
+
+// const Private: React.FC<PrivateProps> = ({ Item }) => {
+//   const signed = false;
+
+//   return signed ? <Item /> : <SignIn />;
+// };
+
+// export const AppRoutes = () => {
+//   return (
+//     <Router>
+//       <Header />
+//       <>
+//         <Routes>
+//           <Route path="/" element={<Private Item={Home} />} />
+//           <Route path="/signin" element={<SignIn />} />
+//           <Route path="/home" element={<Home />} />
+//           <Route path="*" element={<h1>Página não encontrada (404)</h1>} />
+//         </Routes>
+//       </>
+//     </Router>
+//   );
+// };

@@ -6,7 +6,7 @@ import { SignUpData } from "../../interfaces/index";
 
 import "../../Global.css";
 import styles from "./SignUp.module.css";
-import api from "../../services/api";
+import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp: React.FC = () => {
@@ -33,7 +33,7 @@ export const SignUp: React.FC = () => {
         navigate("/signin");
       }
     } catch (error) {
-      alert("Ocorreu um erro");
+      alert("Usuário já cadastrado");
     }
   };
 

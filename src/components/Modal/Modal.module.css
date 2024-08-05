@@ -1,0 +1,9 @@
+.modal_overlay {
+  background-color: var(--PRIMARY_LIGHT);
+  height: 600px;
+  width: 400px;
+}
+.modal_content {
+}
+.modal_close {
+}
