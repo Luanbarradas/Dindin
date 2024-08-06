@@ -1,7 +1,7 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signUpValidationSchema } from "../../services/userValidation";
+import { signUpValidationSchema } from "../../validation/userValidation";
 import { SignUpData } from "../../interfaces/index";
 
 import "../../Global.css";

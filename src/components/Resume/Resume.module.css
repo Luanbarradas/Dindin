@@ -1,0 +1,49 @@
+.resume_container_main {
+  height: 300px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resume_container {
+  height: 230px;
+  padding: 2rem;
+  background-color: var(--PRIMARY_GRAY);
+  border-radius: 0.5rem;
+}
+
+.item {
+  color: var(--FONT_COLOR);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.item_label {
+  color: var(--FONT_COLOR);
+}
+
+.value_income {
+  color: var(--SECONDARY_BLUE);
+}
+
+.value_expenses {
+  color: var(--DEBT_ORANGE);
+}
+
+.value_balance {
+  color: var(--REGISTRATION_AREA_BLUE);
+}
+
+hr {
+  border: none;
+  border-top: 2px solid var(--SECONDARY_GRAY);
+  margin: 16px 0;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}

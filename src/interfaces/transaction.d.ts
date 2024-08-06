@@ -28,16 +28,3 @@ export interface Transaction {
   category_id: number;
   category_name: string;
 }
-
-export interface TransactionsContextType {
-  transactions: Transaction[];
-  fetchTransactions: () => void;
-  addTransaction: (
-    transaction: Omit<Transaction, "id" | "userId" | "categoryName">
-  ) => void;
-  updateTransaction: (
-    id: number,
-    updatedTransaction: Omit<Transaction, "id" | "userId" | "categoryName">
-  ) => void;
-  deleteTransaction: (id: number) => void;
-}
