@@ -6,6 +6,7 @@ import exitIcon from "../../assets/exit-icon.svg";
 import logo from "../../assets/logo.svg";
 
 import styles from "./Header.module.css";
+import { Logout } from "../Logout/Logout";
 
 export const Header: React.FC = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ export const Header: React.FC = () => {
         <div className={styles.icons_header}>
           <img src={userIcon} alt="Ícone do usuário" />
           <p>Fulano</p>
-          <img src={exitIcon} alt="Sair" />
+          <Logout />
         </div>
       )}
     </header>

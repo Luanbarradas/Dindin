@@ -11,6 +11,8 @@ import { SignUp } from "./pages/SignUp/SignUp";
 // import { Tabela } from "./pages/Organizational/Organizational";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";
+import Modal from "./components/Modal/Modal";
+import Resume from "./components/Resume/Resume";
 
 export const AppRoutes = () => {
   return (
@@ -35,3 +37,20 @@ function ProtectedRoutes() {
   const token = localStorage.getItem("token");
   return token ? <Outlet /> : <Navigate to="/signin" />;
 }
+
+// export const AppRoutes = () => {
+//   return (
+//     <Router>
+//       <Header />
+//       <>
+//         <Routes>
+//           <Route path="/" element={<SignUp />} />
+//           <Route path="/signin" element={<SignIn />} />
+//           <Route path="/home" element={<Home />} />
+//           <Route path="/resume" element={<Resume />} />
+//           <Route path="*" element={<h1>Página não encontrada (404)</h1>} />
+//         </Routes>
+//       </>
+//     </Router>
+//   );
+// };

@@ -1,12 +1,12 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signInValidationSchema } from "../../services/userValidation";
+import { signInValidationSchema } from "../../validation/userValidation";
 import { SignInData } from "../../interfaces/index";
 
 import "../../Global.css";
 import styles from "./SignIn.module.css";
-import api from "../../services/api";
+import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const SignIn: React.FC = () => {
@@ -35,7 +35,7 @@ export const SignIn: React.FC = () => {
         navigate("/home");
       }
     } catch (error) {
-      alert("Ocorreu um erro");
+      alert("Senha ou email inválidos");
     }
   };
 
