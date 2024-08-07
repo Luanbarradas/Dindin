@@ -1,0 +1,72 @@
+.resume {
+  width: 236px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.10);
+  background: var(--PRIMARY_GRAY);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-txt-h2-resume {
+  width: 100%;
+  text-align: center;
+}
+
+.container-txt-h2-resume h2 {
+  color: #2F2F2F;
+  font-family: var(--font-family-rubik);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.table-resume {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.table-resume tr {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.table-resume td {
+  text-align: right;
+  color: #2F2F2F;
+  font-family: var(--font-family-rubik);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.table-resume .entrace {
+  color: var(--SECONDARY_BLUE);
+}
+
+.table-resume .exit {
+  color: var(--DEBT_ORANGE);
+}
+
+.table-resume .balance {
+  color: var(--REGISTRATION_AREA_BLUE);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.balance-txt {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.resume hr {
+  width: 100%;
+  height: 1px;
+  background-color: var(--SECONDARY_GRAY);
+  border-style: none;
+  margin: 10px 0;
+}

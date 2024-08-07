@@ -18,7 +18,10 @@ export interface AddRegisterModalProps {
   onNewTransaction: () => void;
 }
 
-
+export interface PopupProps {
+  onConfirm: () => void;
+  onCancel: () => void;
+}
 
 export interface LoginProps {
   setIsAuthenticated: (isAuthenticated: boolean) => void;
@@ -60,3 +63,10 @@ export interface ProtectedRouteProps {
 export type LoginError = {
   message: string;
 };
+
+
+export interface EditUserModalProps {
+  show: boolean;
+  onClose: () => void;
+  onNameUpdate: (newName: string) => void;
+}

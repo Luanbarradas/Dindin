@@ -40,11 +40,10 @@
   width: 14.75rem;
   height: 2.875rem;
   border-radius: 0.3125rem;
-  background-color: var(--color-purple);
+  background-color: var(--SECONDARY_BLUE);
   border: none;
   cursor: pointer;
-
-  color: #FFF;
+  color: var(--PRIMARY_LIGHT);
   font-family: var(--font-family-rubik);
   font-size: 0.875rem;
   font-style: normal;

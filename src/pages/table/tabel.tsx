@@ -1,12 +1,13 @@
 import '../../Global.css';
-
+import './tabel.css'
 import pencil from '../../assets/pencil.svg';
 import bin from '../../assets/bin.svg';
 import Triangulo from '../../assets/triangulo.svg';
 import { getItem } from '../../services/api';
 import { TabelaProps, ICategoria, Transacao } from '../../interfaces/Transaction';
 import { useEffect, useState } from 'react';
-import { EditRegisterModal } from './modaltabela';
+import { EditRegisterModal } from '../modaltable/modaltabela';
+import { ConfirmDeletePopup } from "../../components/popup/popup";
 import axios from 'axios';
 
 export const Tabela = ({
@@ -19,6 +20,7 @@ export const Tabela = ({
   const [currentEditRegister] = useState<Transacao | undefined>(undefined);
   const [showEditModal, setShowEditModal] = useState(false);
   const [categorias, setCategorias] = useState<ICategoria[]>([]);
+  const [showDeletePopup, setShowDeletePopup] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchCategorias = async () => {
@@ -99,35 +101,69 @@ export const Tabela = ({
   };
 
   return (
-    <div className='container-table'>
-      <table>
-        <thead>
-          <tr>
-            <th scope='col' className='data-th-txt'>
-              Data
-              <img src={Triangulo} alt='ícone reorganizar por data' />
-            </th>
-            <th>Dia da Semana</th>
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Valor</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {transacao.map((transacao) => (
-            <tr key={transacao.id}>
-              <td>{handleData(transacao.data)}</td>
-              <td>{handleGetDay(transacao.data)}</td>
-              <td className='table-description'>{transacao.descricao}</td>
-              <td className='table-category'>{getCategoriaDescricao(transacao.categoria_id)}</td>
-              <td className='col-value' style={{ color: transacao.tipo === 'saida' ? '#FA8C10' : '#7B61FF' }}>
-                R$ {transacao.valor}
+    <div className="container-table">
+      <table className="transation-table">
+
+        <tr className="title-container-text">
+          <th className="data-th-txt">
+            Data
+            <img src={Triangulo} alt="ícone reorganizar por data" />
+          </th>
+          <th>Dia da Semana</th>
+          <th>Descrição</th>
+          <th>Categoria</th>
+          <th>Valor</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <tbody className="list-container">
+          {transacao.map(transacao => (
+            <tr key={transacao.id} className="list-item">
+              <td>
+                <p className="Data-item">{handleData(transacao.data)}</p>
               </td>
-              <td className='edit-icon'>
-                <img src={pencil} alt="ícone de editar" style={{ cursor: 'pointer' }} onClick={() => handleEditRegister(transacao.id)} />
-                <img src={bin} alt="ícone de deletar" style={{ marginLeft: '13px', cursor: 'pointer' }} onClick={() => handleDeleteItem(transacao.id)} />
+              <td>
+                <p>{handleGetDay(transacao.data)}</p>
+              </td>
+              <td className="table-description">
+                <p>{transacao.descricao}</p>
+              </td>
+              <td className="table-category">
+                <p>{getCategoriaDescricao(transacao.categoria_id)}</p>
+              </td>
+              <td
+                className="col-value"
+                style={{
+                  color: transacao.tipo === "saida" ? "#FA8C10" : "#7B61FF",
+                }}
+              >
+                <p>R$ {transacao.valor}</p>
+              </td>
+              <td className="edit-icon">
+                <p>
+                  <img
+                    src={pencil}
+                    alt="ícone de editar"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleEditRegister(transacao.id)}
+                  />
+                  <img
+                    src={bin}
+                    alt="ícone de deletar"
+                    style={{ marginLeft: "13px", cursor: "pointer" }}
+                    onClick={() => setShowDeletePopup(transacao.id)}
+                  />
+                  {showDeletePopup === transacao.id && (
+                    <ConfirmDeletePopup
+                      onConfirm={() => {
+                        handleDeleteItem(transacao.id);
+                        setShowDeletePopup(null);
+                      }}
+                      onCancel={() => setShowDeletePopup(null)}
+                    />
+                  )}
+                </p>
               </td>
             </tr>
           ))}

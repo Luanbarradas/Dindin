@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./addmodaltabel.css";
+import "../addmodal/addmodaltabel.css";
 import "./modaltabela.css";
 import { EditCategoria, EditRegisterModalProps } from "../../interfaces/Transaction";
 import { NumericFormat } from "react-number-format";

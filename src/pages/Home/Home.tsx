@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import "../../Global.css";
 import "./style.css";
 import { FilterButton } from "../../components/filterbutton/buttonFilter";
-import { Header } from "../../components/Header/Header";
-import { ResumeTable } from "../Organizational/resumetabel";
-import { Tabela } from "../Organizational/tabel";
+
+import { ResumeTable } from "../resumetable/resumetabel";
+import { Tabela } from "../table/tabel";
 import { getItem } from "../../services/api";
 import { Transacao } from "../../interfaces/Transaction";
-import { AddRegisterModal } from "../Organizational/addmodaltabel";
-import { EditRegisterModal } from "../Organizational/modaltabela";
+import { AddRegisterModal } from "../addmodal/addmodaltabel";
+import { EditRegisterModal } from "../modaltable/modaltabela";
 import axios from "axios";
 
 export const Home = () => {
@@ -59,7 +59,6 @@ export const Home = () => {
 
   return (
     <div className="background">
-      <Header />
       <main className="main-home">
         <div className="container-description">
           <FilterButton />

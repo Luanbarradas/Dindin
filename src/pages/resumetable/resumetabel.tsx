@@ -30,7 +30,7 @@ export const ResumeTable = ({ transacao }: ResumeTableProps) => {
                 <h2>Resumo</h2>
             </div>
             <table className="table-resume">
-                <tbody className="tbody">
+                <tbody>
                     <tr>
                         <th scope="row" className="entrace-txt">
                             Entradas
