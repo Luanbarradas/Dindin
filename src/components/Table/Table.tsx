@@ -16,10 +16,11 @@ const Table: React.FC<TableProps> = ({ transactions, onEdit, onDelete }) => {
     <table className={styles.table_container}>
       <thead>
         <tr className={styles.table_header}>
-          <th className={styles.table_itens}>Date</th>
-          <th className={styles.table_itens}>Description</th>
-          <th className={styles.table_itens}>Category</th>
-          <th className={styles.table_itens}>Value</th>
+          <th className={styles.table_itens}>Data</th>
+          <th className={styles.table_itens}>Dia da semana</th>
+          <th className={styles.table_itens}>Descrição</th>
+          <th className={styles.table_itens}>Categoria</th>
+          <th className={styles.table_itens}>Valor</th>
           <th className={styles.table_itens}>Actions</th>
         </tr>
       </thead>
@@ -27,6 +28,7 @@ const Table: React.FC<TableProps> = ({ transactions, onEdit, onDelete }) => {
         {transactions.map((transaction) => (
           <tr className={styles.table_header} key={transaction.id}>
             <td className={styles.table_itens}>{transaction.date}</td>
+            {/* <td className={styles.table_item}>{transaction.date}</td> */}
             <td className={styles.table_itens}>{transaction.description}</td>
             <td className={styles.table_itens}>{transaction.category_name}</td>
             <td className={styles.table_itens}>

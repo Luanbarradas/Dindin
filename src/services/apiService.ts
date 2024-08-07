@@ -63,6 +63,7 @@ import { api, ENDPOINTS } from "./api";
 export const fetchTransactions = async () => {
   try {
     const response = await api.get(ENDPOINTS.transaction);
+    console.log(response);
     return response.data;
   } catch (error) {
     console.error("Failed to fetch transactions", error);

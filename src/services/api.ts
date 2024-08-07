@@ -6,10 +6,9 @@ const API_BASE_URL =
   "https://desafio-backend-03-dindin.pedagogico.cubos.academy";
 
 export const api = axios.create({
-  baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: token ? `Bearer ${token}` : "",
+    Authorization: `Bearer ${token}`,
   },
 });
 
