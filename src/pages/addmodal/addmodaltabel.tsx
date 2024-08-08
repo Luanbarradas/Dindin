@@ -4,7 +4,7 @@ import { NumericFormat } from 'react-number-format';
 
 import "./addmodaltabel.css";
 import { getItem } from "../../services/api";
-import { AddRegisterModalProps, ICategoria } from "../../interfaces/Transaction";
+import { AddRegisterModalProps, ICategoria } from "../../interfaces/transaction";
 
 export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
     show,

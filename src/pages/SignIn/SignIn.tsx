@@ -6,7 +6,7 @@ import { SignInData } from "../../interfaces/index";
 
 import "../../Global.css";
 import styles from "./SignIn.module.css";
-import { api } from "../../services/api";
+import { api, ENDPOINTS } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const SignIn: React.FC = () => {
@@ -24,10 +24,13 @@ export const SignIn: React.FC = () => {
     inputsValue: SignInData
   ) => {
     try {
-      const { data } = await api.post("/login", {
+
+
+      const { data } = await api.post(ENDPOINTS.login, {
         email: inputsValue.email,
         senha: inputsValue.password,
       });
+      console.log(data);
 
       if (data) {
         localStorage.setItem("token", data.token);

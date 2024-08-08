@@ -27,13 +27,17 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .table-resume tr {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.resume-table{
+  margin-bottom: 10px;
 }
 
 .table-resume td {
@@ -55,12 +59,12 @@
 .table-resume .balance {
   color: var(--REGISTRATION_AREA_BLUE);
   font-weight: bold;
-  font-size: 14px;
+ 
 }
 
 .balance-txt {
   font-weight: 700;
-  font-size: 14px;
+  
 }
 
 .resume hr {

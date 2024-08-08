@@ -7,7 +7,7 @@ import { FilterButton } from "../../components/filterbutton/buttonFilter";
 import { ResumeTable } from "../resumetable/resumetabel";
 import { Tabela } from "../table/tabel";
 import { getItem } from "../../services/api";
-import { Transacao } from "../../interfaces/Transaction";
+import { Transacao } from "../../interfaces/transaction";
 import { AddRegisterModal } from "../addmodal/addmodaltabel";
 import { EditRegisterModal } from "../modaltable/modaltabela";
 import axios from "axios";
@@ -43,7 +43,13 @@ export const Home = () => {
           },
         }
       );
-      setTransacao(response.data);
+      const transacoes = response.data.sort((a: Transacao, b: Transacao) => {
+        const dataA = new Date(a.data)
+        const dataB = new Date(b.data)
+        return dataA.getTime() - dataB.getTime()
+      })
+
+      setTransacao(transacoes);
     } catch (error) {
       console.error("Erro ao buscar transações:", error);
     }
@@ -61,14 +67,16 @@ export const Home = () => {
     <div className="background">
       <main className="main-home">
         <div className="container-description">
-          <FilterButton />
           <div className="description">
-            <Tabela
-              transacao={transacao}
-              setTransacao={setTransacao}
-              setCurrentRegister={setCurrentRegister}
-              setEditRegister={setEditRegister}
-            />
+            <div className="table-container">
+              <FilterButton />
+              <Tabela
+                transacao={transacao}
+                setTransacao={setTransacao}
+                setCurrentRegister={setCurrentRegister}
+                setEditRegister={setEditRegister}
+              />
+            </div>
             <div className="container-resume">
               <ResumeTable transacao={transacao} />
               <button onClick={() => setAddRegister(true)}>
