@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { PopupProps } from "../../interfaces/Transaction";
+import { PopupProps } from "../../interfaces/transaction";
 
 export const ConfirmDeletePopup: React.FC<PopupProps> = ({ onConfirm, onCancel }) => {
     return (

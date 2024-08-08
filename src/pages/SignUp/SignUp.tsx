@@ -6,7 +6,7 @@ import { SignUpData } from "../../interfaces/index";
 
 import "../../Global.css";
 import styles from "./SignUp.module.css";
-import { api } from "../../services/api";
+import { api, ENDPOINTS } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp: React.FC = () => {
@@ -22,17 +22,22 @@ export const SignUp: React.FC = () => {
 
   const onSubmit: SubmitHandler<SignUpData> = async (inputsValue) => {
     try {
-      const { data } = await api.post("/usuario", {
+
+
+      const { data } = await api.post(ENDPOINTS.user, {
         nome: inputsValue.name,
         email: inputsValue.email,
         senha: inputsValue.password,
       });
+      console.log(data);
 
       if (data) {
         alert("Cadastrado com sucesso");
         navigate("/signin");
       }
     } catch (error) {
+      console.log(error);
+
       alert("Usuário já cadastrado");
     }
   };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../addmodal/addmodaltabel.css";
 import "./modaltabela.css";
-import { EditCategoria, EditRegisterModalProps } from "../../interfaces/Transaction";
+import { EditCategoria, EditRegisterModalProps } from "../../interfaces/transaction";
 import { NumericFormat } from "react-number-format";
 import { getItem } from "../../services/api";
 import { NumberFormatValues } from "react-number-format";

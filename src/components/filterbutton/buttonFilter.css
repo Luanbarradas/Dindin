@@ -1,7 +1,6 @@
 .filter-button {
-    width: 80px;
-    height: 30px;
-
+    width: 100px;
+    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;

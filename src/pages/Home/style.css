@@ -28,12 +28,19 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+
 }
 
+.table-container{
+  display:flex;
+  gap:20px;
+  flex-direction:column;
+}
 .container-resume {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top:58px;
 }
 
 .container-resume button {

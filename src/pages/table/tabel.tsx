@@ -4,11 +4,12 @@ import pencil from '../../assets/pencil.svg';
 import bin from '../../assets/bin.svg';
 import Triangulo from '../../assets/triangulo.svg';
 import { getItem } from '../../services/api';
-import { TabelaProps, ICategoria, Transacao } from '../../interfaces/Transaction';
+import { TabelaProps, ICategoria, Transacao } from '../../interfaces/transaction';
 import { useEffect, useState } from 'react';
 import { EditRegisterModal } from '../modaltable/modaltabela';
 import { ConfirmDeletePopup } from "../../components/popup/popup";
 import axios from 'axios';
+
 
 export const Tabela = ({
   transacao,
@@ -21,6 +22,35 @@ export const Tabela = ({
   const [showEditModal, setShowEditModal] = useState(false);
   const [categorias, setCategorias] = useState<ICategoria[]>([]);
   const [showDeletePopup, setShowDeletePopup] = useState<number | null>(null);
+  const [ordenation, setOrdenation] = useState('asc')
+
+  function changeOrdenation() {
+    const asc = document.querySelector('.asc')
+    asc?.classList.toggle('hidden')
+
+    const desc = document.querySelector('.desc')
+    desc?.classList.toggle('hidden')
+    if (ordenation === 'asc') {
+      const transacoes = transacao.sort((a, b) => {
+        const dataA = new Date(a.data)
+        const dataB = new Date(b.data)
+        return dataB.getTime() - dataA.getTime()
+      })
+      setTransacao(transacoes)
+      setOrdenation('desc')
+    } else {
+      const transacoes = transacao.sort((a, b) => {
+        const dataA = new Date(a.data)
+        const dataB = new Date(b.data)
+        return dataA.getTime() - dataB.getTime()
+      })
+      setTransacao(transacoes)
+      setOrdenation('asc')
+    }
+
+  }
+
+
 
   useEffect(() => {
     const fetchCategorias = async () => {
@@ -61,6 +91,7 @@ export const Tabela = ({
     const date = new Date(data);
     const day = date.getDay();
     return daysOfWeek[day];
+
   };
 
   const handleDeleteItem = async (id: number) => {
@@ -103,20 +134,21 @@ export const Tabela = ({
   return (
     <div className="container-table">
       <table className="transation-table">
-
-        <tr className="title-container-text">
-          <th className="data-th-txt">
-            Data
-            <img src={Triangulo} alt="ícone reorganizar por data" />
-          </th>
-          <th>Dia da Semana</th>
-          <th>Descrição</th>
-          <th>Categoria</th>
-          <th>Valor</th>
-          <th></th>
-          <th></th>
-        </tr>
-
+        <thead>
+          <tr className="title-container-text">
+            <th className="data-th-txt" onClick={changeOrdenation}>
+              Data
+              <img className='asc hidden' src={Triangulo} alt="ícone reorganizar por data" />
+              <img className='desc' src={Triangulo} alt="ícone reorganizar por data" />
+            </th>
+            <th>Dia da Semana</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody className="list-container">
           {transacao.map(transacao => (
             <tr key={transacao.id} className="list-item">
@@ -141,29 +173,29 @@ export const Tabela = ({
                 <p>R$ {transacao.valor}</p>
               </td>
               <td className="edit-icon">
-                <p>
-                  <img
-                    src={pencil}
-                    alt="ícone de editar"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleEditRegister(transacao.id)}
+
+                <img
+                  src={pencil}
+                  alt="ícone de editar"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleEditRegister(transacao.id)}
+                />
+                <img
+                  src={bin}
+                  alt="ícone de deletar"
+                  style={{ marginLeft: "13px", cursor: "pointer" }}
+                  onClick={() => setShowDeletePopup(transacao.id)}
+                />
+                {showDeletePopup === transacao.id && (
+                  <ConfirmDeletePopup
+                    onConfirm={() => {
+                      handleDeleteItem(transacao.id);
+                      setShowDeletePopup(null);
+                    }}
+                    onCancel={() => setShowDeletePopup(null)}
                   />
-                  <img
-                    src={bin}
-                    alt="ícone de deletar"
-                    style={{ marginLeft: "13px", cursor: "pointer" }}
-                    onClick={() => setShowDeletePopup(transacao.id)}
-                  />
-                  {showDeletePopup === transacao.id && (
-                    <ConfirmDeletePopup
-                      onConfirm={() => {
-                        handleDeleteItem(transacao.id);
-                        setShowDeletePopup(null);
-                      }}
-                      onCancel={() => setShowDeletePopup(null)}
-                    />
-                  )}
-                </p>
+                )}
+
               </td>
             </tr>
           ))}

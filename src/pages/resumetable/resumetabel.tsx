@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./resumetabel.css";
-import { ResumeTableProps } from "../../interfaces/Transaction";
+import { ResumeTableProps } from "../../interfaces/transaction";
 
 export const ResumeTable = ({ transacao }: ResumeTableProps) => {
     const [entrada, setEntrada] = useState<number>(0);
@@ -31,7 +31,7 @@ export const ResumeTable = ({ transacao }: ResumeTableProps) => {
             </div>
             <table className="table-resume">
                 <tbody>
-                    <tr>
+                    <tr className="resume-table">
                         <th scope="row" className="entrace-txt">
                             Entradas
                         </th>

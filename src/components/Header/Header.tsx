@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import userIcon from "../../assets/account_user_person_profile_avatar_icon.svg";
-import exitIcon from "../../assets/exit-icon.svg";
+//import exitIcon from "../../assets/exit-icon.svg";
 import logo from "../../assets/logo.svg";
 
 import styles from "./Header.module.css";
