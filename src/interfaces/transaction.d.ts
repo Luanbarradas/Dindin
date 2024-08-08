@@ -4,7 +4,7 @@ export interface Transacao {
   descricao: string;
   categoria_id: number;
   valor: number;
-  tipo: 'entrada' | 'saida';
+  tipo: "entrada" | "saida";
 }
 
 export interface ICategoria {
@@ -31,7 +31,9 @@ export interface TabelaProps {
   transacao: Transacao[];
   setTransacao: React.Dispatch<React.SetStateAction<Transacao[]>>;
   setEditRegister: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentRegister: React.Dispatch<React.SetStateAction<Transacao | undefined>>;
+  setCurrentRegister: React.Dispatch<
+    React.SetStateAction<Transacao | undefined>
+  >;
 }
 
 export interface ResumeTableProps {
@@ -64,7 +66,6 @@ export type LoginError = {
   message: string;
 };
 
-
 export interface EditUserModalProps {
   show: boolean;
   onClose: () => void;
@@ -90,13 +91,46 @@ export interface EditUserModalProps {
 //   transacao: Transacao[];
 // }
 
+// Dados usados na aplicação
 export interface Transaction {
   id: number;
-  type: string;
+  type: "entrada" | "saida";
   description: string;
   value: number;
   date: string;
   user_id: number;
   category_id: number;
   category_name: string;
+}
+
+// Dados retornados pela API
+export interface Transacao {
+  id: number;
+  tipo: "entrada" | "saida";
+  descricao: string;
+  valor: number;
+  data: string;
+  usuario_id: number;
+  categoria_id: number;
+  categoria_nome: string;
+}
+
+// Dados usados na aplicação para extrato
+export interface ExtractTransaction {
+  income: number;
+  expenses: number;
+}
+
+// Dados retornados pela API para extrato
+export interface ExtratoApi {
+  entrada: number;
+  saida: number;
+}
+
+interface UpdateTransactionData {
+  descricao: string;
+  valor: number;
+  data: string;
+  categoria_id: number;
+  tipo: "entrada" | "saida";
 }

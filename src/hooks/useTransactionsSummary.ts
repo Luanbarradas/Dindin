@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
-import { fetchTransactions } from "../services/apiService";
+import { ExtractTransaction } from "../interfaces";
+import { fetchExtract } from "../services/apiService";
 
-const useTransactionsSummary = () => {
-  const [income, setIncome] = useState(0);
-  const [expenses, setExpenses] = useState(0);
+export const useTransactionsSummary = () => {
+  const [extract, setExtract] = useState<ExtractTransaction | null>(null);
 
   useEffect(() => {
-    const loadTransactions = async () => {
+    const loadExtract = async () => {
       try {
-        const data = await fetchTransactions();
-        setIncome(data.entrada);
-        setExpenses(data.saida);
+        const data = await fetchExtract();
+        setExtract(data);
       } catch (error) {
-        console.error("Failed to fetch transactions", error);
+        console.error("Failed to load transactions", error);
       }
     };
 
-    loadTransactions();
+    loadExtract();
   }, []);
 
-  return { income, expenses };
+  return extract;
 };
-
-export default useTransactionsSummary;

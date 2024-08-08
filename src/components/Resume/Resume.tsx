@@ -1,9 +1,12 @@
 import React from "react";
-import useTransactionsSummary from "../../hooks/useTransactionsSummary";
+import { useTransactionsSummary } from "../../hooks/useTransactionsSummary";
 import styles from "./Resume.module.css";
 
 const Resume: React.FC = () => {
-  const { income, expenses } = useTransactionsSummary();
+  const extract = useTransactionsSummary();
+
+  const income = extract?.income || 0;
+  const expenses = extract?.expenses || 0;
 
   const balance = income - expenses;
 

@@ -95,7 +95,7 @@ export const Home = () => {
   );
 };
 
-// pages/Home/Home - Luan
+// pages / Home / Home - Luan;
 
 // import React, { useState } from "react";
 // import styles from "./Home.module.css";
