@@ -7,7 +7,6 @@
 }
 
 .icons_header {
-  width: 200px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,4 +24,8 @@
   font-size: 2.25rem;
   color: var(--PRIMARY_LIGHT);
   font-weight: 600;
+}
+
+.spacing_items {
+  margin-right: 10px;
 }

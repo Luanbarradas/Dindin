@@ -104,16 +104,16 @@ export interface Transaction {
 }
 
 // Dados retornados pela API
-export interface Transacao {
-  id: number;
-  tipo: "entrada" | "saida";
-  descricao: string;
-  valor: number;
-  data: string;
-  usuario_id: number;
-  categoria_id: number;
-  categoria_nome: string;
-}
+// export interface Transacao {
+//   id: number;
+//   tipo: "entrada" | "saida";
+//   descricao: string;
+//   valor: number;
+//   data: string;
+//   usuario_id: number;
+//   categoria_id: number;
+//   categoria_nome: string;
+// }
 
 // Dados usados na aplicação para extrato
 export interface ExtractTransaction {

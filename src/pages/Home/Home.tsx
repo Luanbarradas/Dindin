@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../Global.css";
-import "./style.css";
+import styles from "./Home.module.css";
 import { FilterButton } from "../../components/filterbutton/buttonFilter";
 
-import { ResumeTable } from "../resumetable/resumetabel";
+// import { ResumeTable } from "../resumetable/resumetabel";
 import { Tabela } from "../table/tabel";
 import { getItem } from "../../services/api";
 import { Transacao } from "../../interfaces/transaction";
 import { AddRegisterModal } from "../addmodal/addmodaltabel";
 import { EditRegisterModal } from "../modaltable/modaltabela";
 import axios from "axios";
+import { Resume } from "../../components/Resume/Resume";
 
 export const Home = () => {
   const [addRegister, setAddRegister] = useState<boolean>(false);
@@ -44,10 +45,10 @@ export const Home = () => {
         }
       );
       const transacoes = response.data.sort((a: Transacao, b: Transacao) => {
-        const dataA = new Date(a.data)
-        const dataB = new Date(b.data)
-        return dataA.getTime() - dataB.getTime()
-      })
+        const dataA = new Date(a.data);
+        const dataB = new Date(b.data);
+        return dataA.getTime() - dataB.getTime();
+      });
 
       setTransacao(transacoes);
     } catch (error) {
@@ -64,11 +65,11 @@ export const Home = () => {
   };
 
   return (
-    <div className="background">
-      <main className="main-home">
-        <div className="container-description">
-          <div className="description">
-            <div className="table-container">
+    <div>
+      <main className={styles.main_home}>
+        <div className={styles.container_description}>
+          <div className={styles.description}>
+            <div className={styles.table_container}>
               <FilterButton />
               <Tabela
                 transacao={transacao}
@@ -77,11 +78,16 @@ export const Home = () => {
                 setEditRegister={setEditRegister}
               />
             </div>
-            <div className="container-resume">
-              <ResumeTable transacao={transacao} />
-              <button onClick={() => setAddRegister(true)}>
-                Adicionar Registro
-              </button>
+            <div className={styles.container_resume}>
+              <div className="resume_container_main">
+                <Resume transacao={transacao} />
+                <button
+                  className="default_button"
+                  onClick={() => setAddRegister(true)}
+                >
+                  Adicionar Registro
+                </button>
+              </div>
               <AddRegisterModal
                 show={addRegister}
                 onClose={() => setAddRegister(false)}

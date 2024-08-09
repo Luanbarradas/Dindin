@@ -24,13 +24,10 @@ export const SignIn: React.FC = () => {
     inputsValue: SignInData
   ) => {
     try {
-
-
       const { data } = await api.post(ENDPOINTS.login, {
         email: inputsValue.email,
         senha: inputsValue.password,
       });
-      console.log(data);
 
       if (data) {
         localStorage.setItem("token", data.token);
