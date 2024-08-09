@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
 
-import { ResumeTableProps } from "../../interfaces/transaction";
+import { ResumeScheduleProps } from "../../interfaces/index";
 
 import styles from "./Resume.module.css";
 import "../../Global.css";
 
-export const Resume = ({ transacao }: ResumeTableProps) => {
-  const [entrada, setEntrada] = useState<number>(0);
-  const [saida, setSaida] = useState<number>(0);
+export const Resume = ({ transaction }: ResumeScheduleProps) => {
+  const [income, setIncome] = useState<number>(0);
+  const [expense, setExpense] = useState<number>(0);
 
   useEffect(() => {
-    let totalEntrada = 0;
-    let totalSaida = 0;
+    let totalIncome = 0;
+    let totalExpense = 0;
 
-    transacao.forEach((item) => {
+    transaction.forEach((item) => {
       if (item.tipo === "entrada") {
-        totalEntrada += Number(item.valor);
+        totalIncome += Number(item.valor);
       } else if (item.tipo === "saida") {
-        totalSaida += Number(item.valor);
+        totalExpense += Number(item.valor);
       }
     });
 
-    setEntrada(Number(totalEntrada.toFixed(2)));
-    setSaida(Number(totalSaida.toFixed(2)));
-  }, [transacao]);
+    setIncome(Number(totalIncome.toFixed(2)));
+    setExpense(Number(totalExpense.toFixed(2)));
+  }, [transaction]);
 
-  const saldo = entrada - saida;
+  const balance = income - expense;
 
   return (
     <>
@@ -33,11 +33,11 @@ export const Resume = ({ transacao }: ResumeTableProps) => {
         <h2>Resumo</h2>
         <div className={styles.item}>
           <span className={styles.item_label}>Entrada</span>
-          <span className={styles.value_income}>R$ {entrada.toFixed(2)}</span>
+          <span className={styles.value_income}>R$ {income.toFixed(2)}</span>
         </div>
         <div className={styles.item}>
           <span className={styles.item_label}>Saída</span>
-          <span className={styles.value_expenses}>R$ {saida.toFixed(2)}</span>
+          <span className={styles.value_expenses}>R$ {expense.toFixed(2)}</span>
         </div>
         <hr />
         <div className={styles.item}>
@@ -46,12 +46,12 @@ export const Resume = ({ transacao }: ResumeTableProps) => {
             className={styles.value_balance}
             style={{
               color:
-                saldo < 0
+                balance < 0
                   ? "var(--DEBT_ORANGE)"
                   : "var(--REGISTRATION_AREA_BLUE)",
             }}
           >
-            R$ {saldo.toFixed(2)}
+            R$ {balance.toFixed(2)}
           </span>
         </div>
       </div>

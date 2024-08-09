@@ -2,24 +2,24 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../Global.css";
 import styles from "./Home.module.css";
-import { FilterButton } from "../../components/filterbutton/buttonFilter";
+import { FilterButton } from "../../components/FilterButton/FilterButton";
 
 // import { ResumeTable } from "../resumetable/resumetabel";
-import { Tabela } from "../table/tabel";
+import { Schedule } from "../../components/Schedule/Schedule";
 import { getItem } from "../../services/api";
-import { Transacao } from "../../interfaces/transaction";
-import { AddRegisterModal } from "../addmodal/addmodaltabel";
-import { EditRegisterModal } from "../modaltable/modaltabela";
+import { Transaction } from "../../interfaces/index";
+import { AddRegisterModal } from "../../components/AddRegisterModal/AddRegisterModal";
+import { EditRegisterModal } from "../../components/EditRegisterModal/EditRegisterModal";
 import axios from "axios";
 import { Resume } from "../../components/Resume/Resume";
 
 export const Home = () => {
   const [addRegister, setAddRegister] = useState<boolean>(false);
   const [editRegister, setEditRegister] = useState<boolean>(false);
-  const [currentRegister, setCurrentRegister] = useState<Transacao | undefined>(
-    undefined
-  );
-  const [transacao, setTransacao] = useState<Transacao[]>([]);
+  const [currentRegister, setCurrentRegister] = useState<
+    Transaction | undefined
+  >(undefined);
+  const [transaction, setTransaction] = useState<Transaction[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,10 +30,10 @@ export const Home = () => {
   }, [navigate]);
 
   useEffect(() => {
-    fetchTransacoes();
+    fetchTransactions();
   }, []);
 
-  const fetchTransacoes = async () => {
+  const fetchTransactions = async () => {
     const token = getItem("token");
     try {
       const response = await axios.get(
@@ -44,24 +44,26 @@ export const Home = () => {
           },
         }
       );
-      const transacoes = response.data.sort((a: Transacao, b: Transacao) => {
-        const dataA = new Date(a.data);
-        const dataB = new Date(b.data);
-        return dataA.getTime() - dataB.getTime();
-      });
+      const transactions = response.data.sort(
+        (a: Transaction, b: Transaction) => {
+          const dateA = new Date(a.data);
+          const dateB = new Date(b.data);
+          return dateA.getTime() - dateB.getTime();
+        }
+      );
 
-      setTransacao(transacoes);
+      setTransaction(transactions);
     } catch (error) {
       console.error("Erro ao buscar transações:", error);
     }
   };
 
   const handleNewTransaction = () => {
-    fetchTransacoes();
+    fetchTransactions();
   };
 
   const handleUpdateTransaction = () => {
-    fetchTransacoes();
+    fetchTransactions();
   };
 
   return (
@@ -71,16 +73,16 @@ export const Home = () => {
           <div className={styles.description}>
             <div className={styles.table_container}>
               <FilterButton />
-              <Tabela
-                transacao={transacao}
-                setTransacao={setTransacao}
+              <Schedule
+                transaction={transaction}
+                setTransaction={setTransaction}
                 setCurrentRegister={setCurrentRegister}
                 setEditRegister={setEditRegister}
               />
             </div>
             <div className={styles.container_resume}>
               <div className="resume_container_main">
-                <Resume transacao={transacao} />
+                <Resume transaction={transaction} />
                 <button
                   className="default_button"
                   onClick={() => setAddRegister(true)}

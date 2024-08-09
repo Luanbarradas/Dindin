@@ -11,8 +11,6 @@ import { SignUp } from "./pages/SignUp/SignUp";
 // import { Tabela } from "./pages/Organizational/Organizational";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";
-import Modal from "./components/Modal/Modal";
-import Resume from "./components/Resume/Resume";
 
 export const AppRoutes = () => {
   return (

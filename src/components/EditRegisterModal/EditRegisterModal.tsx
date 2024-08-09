@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "./modaltabela.module.css";
+import styles from "./EditRegisterModal.module.css";
 import "../../Global.css";
 import {
-  EditCategoria,
+  EditCategory,
   EditRegisterModalProps,
 } from "../../interfaces/transaction";
 import { NumericFormat } from "react-number-format";
@@ -23,7 +23,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
     descricao: "",
     tipo: "entrada" as "entrada" | "saida",
   });
-  const [categorias, setCategorias] = useState<EditCategoria[]>([]);
+  const [categories, setCategories] = useState<EditCategory[]>([]);
   const token = getItem("token");
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
   }, [currentRegister]);
 
   useEffect(() => {
-    const fetchCategorias = async () => {
+    const fetchCategories = async () => {
       try {
         const response = await axios.get(
           "https://desafio-backend-03-dindin.pedagogico.cubos.academy/categoria",
@@ -49,13 +49,13 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
             },
           }
         );
-        setCategorias(response.data);
+        setCategories(response.data);
       } catch (error) {
         console.error("Erro ao buscar categorias:", error);
       }
     };
 
-    fetchCategorias();
+    fetchCategories();
   }, [token]);
 
   const handleInputChange = (
@@ -163,7 +163,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               value={formData.categoria}
               onChange={handleInputChange}
             >
-              {categorias.map((cat) => (
+              {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
                   {cat.descricao}
                 </option>

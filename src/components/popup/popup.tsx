@@ -1,15 +1,19 @@
 import React from "react";
-import "./style.css";
+import styles from "./Popup.module.css";
 import { PopupProps } from "../../interfaces/transaction";
 
-export const ConfirmDeletePopup: React.FC<PopupProps> = ({ onConfirm, onCancel }) => {
-    return (
-        <div className="confirm-delete-popup">
-            <p>Apagar Item?</p>
-            <div className="popup-buttons">
-                <button className="popup-buttonYes" onClick={onConfirm}>Sim</button>
-                <button className="popup-buttonNo" onClick={onCancel}>Não</button>
-            </div>
-        </div>
-    );
+export const Popup: React.FC<PopupProps> = ({ onConfirm, onCancel }) => {
+  return (
+    <div className={styles.confirm_delete_popup}>
+      <p>Apagar Item?</p>
+      <div className={styles.popup_buttons}>
+        <button className={styles.popup_buttonYes} onClick={onConfirm}>
+          Sim
+        </button>
+        <button className={styles.popup_buttonNo} onClick={onCancel}>
+          Não
+        </button>
+      </div>
+    </div>
+  );
 };

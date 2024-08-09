@@ -2,31 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
 
-import styles from "./addmodaltabel.module.css";
+import styles from "./AddRegisterModal.module.css";
 import "../../Global.css";
 
 import { getItem } from "../../services/api";
-import {
-  AddRegisterModalProps,
-  ICategoria,
-} from "../../interfaces/transaction";
+import { AddRegisterModalProps, ICategory } from "../../interfaces/index";
 
 export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
   show,
   onClose,
   onNewTransaction,
 }) => {
-  const [valor, setValor] = useState("");
-  const [categoria, setCategoria] = useState<ICategoria[]>([]);
-  const [data, setData] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [tipo, setTipo] = useState<"entrada" | "saida">("entrada");
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+  const [value, setValue] = useState("");
+  const [category, setCategory] = useState<ICategory[]>([]);
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [type, setType] = useState<"entrada" | "saida">("entrada");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const token = getItem("token");
 
   useEffect(() => {
-    const fetchCategorias = async () => {
+    const fetchCategories = async () => {
       try {
         const response = await axios.get(
           "https://desafio-backend-03-dindin.pedagogico.cubos.academy/categoria",
@@ -36,29 +33,29 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             },
           }
         );
-        setCategoria(response.data);
+        setCategory(response.data);
         if (response.data.length > 0) {
-          setCategoriaSelecionada(response.data[0].descricao);
+          setSelectedCategory(response.data[0].descricao);
         }
       } catch (error) {
         console.error("Erro ao buscar categorias:", error);
       }
     };
 
-    fetchCategorias();
+    fetchCategories();
   }, [token]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const categoriaId = categoria.find(
-      (option) => option.descricao === categoriaSelecionada
+    const categoriaId = category.find(
+      (option) => option.descricao === selectedCategory
     )?.id;
     const newRegister = {
-      tipo,
-      valor: Number(valor),
+      tipo: type,
+      valor: Number(value),
       categoria_id: categoriaId,
-      data,
-      descricao,
+      data: date,
+      descricao: description,
     };
 
     try {
@@ -73,11 +70,11 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
       );
 
       if (response.status === 201) {
-        setTipo("entrada");
-        setCategoriaSelecionada(categoria[0].descricao);
-        setData("");
-        setValor("");
-        setDescricao("");
+        setType("entrada");
+        setSelectedCategory(category[0].descricao);
+        setDate("");
+        setValue("");
+        setDescription("");
         onNewTransaction();
       }
       onClose();
@@ -87,7 +84,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
   };
 
   const handleTipoClick = (tipo: "entrada" | "saida") => {
-    setTipo(tipo);
+    setType(tipo);
   };
 
   if (!show) {
@@ -95,17 +92,21 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
   }
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.modal_content}>
-        <span className={styles.close} onClick={onClose}>
-          &times;
-        </span>
-        <h2 className={styles.modal_content_h2}>Adicionar Registro</h2>
-        <div className={styles.transaction_type}>
+    <div className="modal">
+      <div className="modal_content">
+        <div className="modal_container_title">
+          <h2 className="modal_title">Adicionar Registro</h2>
+          <span className="close" onClick={onClose}>
+            &times;
+          </span>
+        </div>
+
+        <div className="transaction_type">
           <button
+            className="default_button btn_modal"
             style={{
               backgroundColor:
-                tipo === "entrada"
+                type === "entrada"
                   ? "var(--REGISTRATION_AREA_BLUE)"
                   : "var(--INPUT_GRAY)",
             }}
@@ -114,9 +115,10 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             Entrada
           </button>
           <button
+            className="default_button btn_modal"
             style={{
               backgroundColor:
-                tipo === "saida"
+                type === "saida"
                   ? "var(--REGISTRATION_AREA_RED)"
                   : "var(--INPUT_GRAY)",
             }}
@@ -129,10 +131,10 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
           <div className={styles.form_group}>
             <label>Valor</label>
             <NumericFormat
-              value={valor}
+              value={value}
               onValueChange={(values) => {
                 const { value } = values;
-                setValor(value);
+                setValue(value);
               }}
               thousandSeparator="."
               decimalSeparator=","
@@ -147,10 +149,10 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
           <div className={styles.form_group}>
             <label>Categoria</label>
             <select
-              value={categoriaSelecionada}
-              onChange={(e) => setCategoriaSelecionada(e.target.value)}
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              {categoria.map((option) => (
+              {category.map((option) => (
                 <option key={option.id} value={option.descricao}>
                   {option.descricao}
                 </option>
@@ -161,8 +163,8 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             <label>Data</label>
             <input
               type="date"
-              value={data}
-              onChange={(e) => setData(e.target.value)}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               required
             />
           </div>
@@ -170,8 +172,8 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             <label>Descrição</label>
             <input
               type="text"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               required
             />
           </div>
