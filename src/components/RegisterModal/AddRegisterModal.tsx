@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
 
-import styles from "./AddRegisterModal.module.css";
 import "../../Global.css";
 
 import { getItem } from "../../services/api";
@@ -44,6 +43,10 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
 
     fetchCategories();
   }, [token]);
+
+  useEffect(() => {
+    setType("entrada");
+  }, [show]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +106,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
 
         <div className="transaction_type">
           <button
-            className="default_button btn_modal"
+            className="default_button btn_modal_type"
             style={{
               backgroundColor:
                 type === "entrada"
@@ -115,7 +118,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             Entrada
           </button>
           <button
-            className="default_button btn_modal"
+            className="default_button btn_modal_type"
             style={{
               backgroundColor:
                 type === "saida"
@@ -127,8 +130,8 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
             Saída
           </button>
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.form_group}>
+        <form className="container_group" onSubmit={handleSubmit}>
+          <div className={"form_group"}>
             <label>Valor</label>
             <NumericFormat
               value={value}
@@ -146,9 +149,10 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
               required
             />
           </div>
-          <div className={styles.form_group}>
+          <div className={"form_group"}>
             <label>Categoria</label>
             <select
+              className="select_style"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
@@ -159,7 +163,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
               ))}
             </select>
           </div>
-          <div className={styles.form_group}>
+          <div className={"form_group"}>
             <label>Data</label>
             <input
               type="date"
@@ -168,7 +172,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
               required
             />
           </div>
-          <div className={styles.form_group}>
+          <div className={"form_group"}>
             <label>Descrição</label>
             <input
               type="text"
@@ -177,7 +181,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
               required
             />
           </div>
-          <button className="default_button" type="submit">
+          <button className="default_button modal_button" type="submit">
             Confirmar
           </button>
         </form>

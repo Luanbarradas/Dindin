@@ -114,6 +114,8 @@ label {
   background-size: cover;
 } */
 
+/* register modal */
+
 .modal {
   display: flex;
   justify-content: center;
@@ -153,94 +155,41 @@ label {
 .transaction_type {
   display: flex;
   justify-content: center;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.btn_modal {
-  width: 200px;
-}
-
-/* - */
-/* 
-.modal_content_h2 {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-weight: bold;
-  font-size: 36px;
-  font-family: sans-serif;
-}
-
-.modal_content_label {
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-.modal_content_input {
-  width: 320px;
-  margin-left: 20px;
-}
-
-.form_group_select {
-  width: 320px;
-  height: 50px;
-  margin-left: 20px;
-  border-radius: 5px;
-}
-
-.h2 {
-  margin-bottom: 20px;
+.btn_modal_type {
+  width: 100%;
 }
 
 .form_group {
-  margin-bottom: 15px;
-}
-
-.label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.transaction_type {
   display: flex;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  width: 100%;
-  margin-left: 20px;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
-.transaction_type_button {
-  width: 44%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--PRIMARY_LIGHT);
+.container_group {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 80%;
 }
 
-.input,
-.select {
-  width: 100%;
-  padding: 8px;
+.modal_button {
+  width: 200px;
+  align-self: center;
+}
+
+.select_style {
+  border-radius: 0.3rem;
+  border: solid var(--INPUT_GRAY) 0.05rem;
+  padding: 1rem;
   box-sizing: border-box;
+  background-color: var(--PRIMARY_LIGHT);
+  appearance: none;
+  font-size: 1rem;
+  color: var(--INPUT_GRAY);
 }
-
-.confirm_button {
-  display: block;
-  width: 236px;
-  padding: 10px;
-  background-color: var(--SECONDARY_BLUE);
-  color: var(--PRIMARY_LIGHT);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 40px 57px 0;
-}
-
-.confirm_button:hover {
-  background-color: var(--DARK_BLUE);
-} */
 
 /* resume */
 

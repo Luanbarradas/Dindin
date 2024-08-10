@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "./EditRegisterModal.module.css";
+
 import "../../Global.css";
 import {
   EditCategory,
@@ -112,12 +112,16 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
   return (
     <div className="modal">
       <div className="modal_content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
-        <h2>Editar Registro</h2>
-        <div className="transaction-type">
+        <div className="modal_container_title">
+          <h2 className="modal_title">Editar Registro</h2>
+          <span className="close" onClick={onClose}>
+            &times;
+          </span>
+        </div>
+
+        <div className="transaction_type">
           <button
+            className="default_button btn_modal_type"
             style={{
               backgroundColor:
                 formData.tipo === "entrada"
@@ -129,6 +133,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
             Entrada
           </button>
           <button
+            className="default_button btn_modal_type"
             style={{
               backgroundColor:
                 formData.tipo === "saida"
@@ -140,8 +145,8 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
             Saída
           </button>
         </div>
-        <form className={styles.form_edit_transation} onSubmit={handleSubmit}>
-          <div className="form-group">
+        <form className="container_group" onSubmit={handleSubmit}>
+          <div className="form_group">
             <label>Valor</label>
             <NumericFormat
               value={formData.valor}
@@ -156,9 +161,10 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form_group">
             <label>Categoria</label>
             <select
+              className="select_style"
               name="categoria"
               value={formData.categoria}
               onChange={handleInputChange}
@@ -170,7 +176,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               ))}
             </select>
           </div>
-          <div className="form-group">
+          <div className="form_group">
             <label>Data</label>
             <input
               type="date"
@@ -179,7 +185,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               onChange={handleInputChange}
             />
           </div>
-          <div className="form-group">
+          <div className="form_group">
             <label>Descrição</label>
             <input
               type="text"
@@ -188,7 +194,9 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit">Confirmar</button>
+          <button className="default_button modal_button" type="submit">
+            Confirmar
+          </button>
         </form>
       </div>
     </div>

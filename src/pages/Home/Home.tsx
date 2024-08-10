@@ -8,8 +8,8 @@ import { FilterButton } from "../../components/FilterButton/FilterButton";
 import { Schedule } from "../../components/Schedule/Schedule";
 import { getItem } from "../../services/api";
 import { Transaction } from "../../interfaces/index";
-import { AddRegisterModal } from "../../components/AddRegisterModal/AddRegisterModal";
-import { EditRegisterModal } from "../../components/EditRegisterModal/EditRegisterModal";
+import { AddRegisterModal } from "../../components/RegisterModal/AddRegisterModal";
+import { EditRegisterModal } from "../../components/RegisterModal/EditRegisterModal";
 import axios from "axios";
 import { Resume } from "../../components/Resume/Resume";
 

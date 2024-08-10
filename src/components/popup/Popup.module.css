@@ -1,7 +1,7 @@
 .confirm_delete_popup {
   position: absolute;
-  background-color: #e4f2fd;
-  border: 1px solid #ccc;
+  background-color: var(--PRIMARY_GRAY);
+  border: 1px solid var(--SECONDARY_GRAY);
   padding: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -28,7 +28,7 @@
   padding: 8px;
   border: none;
   border-radius: 4px;
-  color: white;
+  color: var(--PRIMARY_LIGHT);
   cursor: pointer;
   font-size: 12px;
   opacity: 0.8;
