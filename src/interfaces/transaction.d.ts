@@ -72,7 +72,7 @@
 //   onNameUpdate: (newName: string) => void;
 // }
 
-// Estamos tentando manter em inglês, mas optamos por deixar o que for relacionado a API em português para não fazer um de-para (tentamos e não conseguimos).
+// Estou tentando manter em inglês, mas optamos por deixar o que for relacionado a API em português para não fazer um de-para (tentamos e não conseguimos).
 
 export interface Transaction {
   id: number;

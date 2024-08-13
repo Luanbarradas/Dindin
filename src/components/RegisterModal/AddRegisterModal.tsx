@@ -58,7 +58,7 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
       valor: Number(value),
       categoria_id: categoriaId,
       data: date,
-      descricao: description,
+      descricao: description.trim() === "" ? "-" : description,
     };
 
     try {
@@ -178,7 +178,6 @@ export const AddRegisterModal: React.FC<AddRegisterModalProps> = ({
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             />
           </div>
           <button className="default_button modal_button" type="submit">

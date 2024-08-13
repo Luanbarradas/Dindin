@@ -50,7 +50,12 @@ export const SignIn: React.FC = () => {
             Organizar as suas finanças nunca foi tão fácil, com o DINDIN, você
             tem tudo num único lugar e em um clique de distância.
           </p>
-          <button className="default_button">Cadastre-se</button>
+          <button
+            className="default_button"
+            onClick={() => (window.location.href = "/")}
+          >
+            Cadastre-se
+          </button>
         </div>
         <form className={styles.form_style} onSubmit={handleSubmit(onSubmit)}>
           <h2 className="form_title">Login</h2>

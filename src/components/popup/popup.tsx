@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Popup.module.css";
-import { PopupProps } from "../../interfaces/transaction";
+import { PopupProps } from "../../interfaces/index";
 
 export const Popup: React.FC<PopupProps> = ({ onConfirm, onCancel }) => {
   return (

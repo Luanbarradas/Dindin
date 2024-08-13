@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "../../Global.css";
-import {
-  EditCategory,
-  EditRegisterModalProps,
-} from "../../interfaces/transaction";
+import { EditCategory, EditRegisterModalProps } from "../../interfaces/index";
 import { NumericFormat } from "react-number-format";
 import { getItem } from "../../services/api";
 import { NumberFormatValues } from "react-number-format";
@@ -83,7 +80,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
       ),
       categoria_id: parseInt(formData.categoria),
       data: formData.data,
-      descricao: formData.descricao,
+      descricao: formData.descricao.trim() === "" ? "-" : formData.descricao,
       tipo: formData.tipo,
     };
 
@@ -138,7 +135,7 @@ export const EditRegisterModal: React.FC<EditRegisterModalProps> = ({
               backgroundColor:
                 formData.tipo === "saida"
                   ? "var(--REGISTRATION_AREA_RED)"
-                  : "var( --INPUT_GRAY)",
+                  : "var(--INPUT_GRAY)",
             }}
             onClick={() => handleTipoClick("saida")}
           >

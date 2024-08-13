@@ -2,7 +2,7 @@ import axios from "axios";
 
 const token = localStorage.getItem("token");
 
-const API_BASE_URL =
+export const API_BASE_URL =
   "https://desafio-backend-03-dindin.pedagogico.cubos.academy";
 
 export const api = axios.create({

@@ -4,7 +4,7 @@ import axios from "axios";
 import styles from "./EditUserModal.module.css";
 
 import { getItem } from "../../services/api";
-import { EditUserModalProps } from "../../interfaces/transaction";
+import { EditUserModalProps } from "../../interfaces/index";
 
 const EditUserModal: React.FC<EditUserModalProps> = ({
   show,
