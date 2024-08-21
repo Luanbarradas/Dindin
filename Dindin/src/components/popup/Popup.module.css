@@ -1,0 +1,50 @@
+.confirm_delete_popup {
+  position: absolute;
+  background-color: var(--PRIMARY_GRAY);
+  border: 1px solid var(--SECONDARY_GRAY);
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 100px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.confirm_delete_popup p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.popup_buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.popup_buttonYes,
+.popup_buttonNo {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  color: var(--PRIMARY_LIGHT);
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.8;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.popup_buttonYes {
+  background-color: var(--REGISTRATION_AREA_BLUE);
+}
+
+.popup_buttonNo {
+  background-color: var(--REGISTRATION_AREA_RED);
+}
+
+.popup_buttonYes:hover,
+.popup_buttonNo:hover {
+  opacity: 1;
+  transform: scale(1.3);
+}

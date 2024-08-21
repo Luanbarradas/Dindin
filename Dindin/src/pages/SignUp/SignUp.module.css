@@ -1,0 +1,31 @@
+.form_style {
+  padding: 1.5rem;
+  margin: auto;
+  background-color: var(--PRIMARY_LIGHT);
+  height: 38rem;
+  width: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.link_singIn {
+  align-self: center;
+  color: var(--SECONDARY_BLUE);
+}
+
+input {
+  border-radius: 0.3rem;
+  border: solid var(--INPUT_GRAY) 0.05rem;
+  resize: none;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--SECONDARY_BLUE);
+}
+
+a {
+  font-size: 0.875rem;
+}

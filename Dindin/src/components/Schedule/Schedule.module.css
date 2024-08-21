@@ -1,0 +1,72 @@
+.title_container_text {
+  background: var(--PRIMARY_LIGHT);
+  box-shadow: 0px 0.125rem 0.6875rem 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.data_item {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.schedule_header th {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 16px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.align_triangle {
+  display: flex;
+  align-items: center;
+}
+
+.schedule_header {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  border: 1px solid var(--SECONDARY_GRAY);
+  background-color: var(--PRIMARY_GRAY);
+  border: none;
+}
+
+.schedule_itens {
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.border_botton_itens {
+  border-bottom: 1px var(--SECONDARY_GRAY) solid;
+}
+
+.container_description {
+  width: 150px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* scroll */
+
+.schedule_container {
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.schedule_container::-webkit-scrollbar,
+.container_description::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.schedule_container::-webkit-scrollbar-thumb,
+.container_description::-webkit-scrollbar-thumb {
+  background-color: var(--SECONDARY_GRAY);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

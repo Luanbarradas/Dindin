@@ -1,0 +1,9 @@
+.logout_button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.logout_button img {
+  display: block;
+}

@@ -1,0 +1,40 @@
+.container_login {
+  margin: 6rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--PRIMARY_LIGHT);
+}
+
+.form_style {
+  padding: 1.5rem;
+  background-color: var(--PRIMARY_LIGHT);
+  height: 25rem;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.presentation_login {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 21.875rem;
+  width: 37.5rem;
+}
+
+h1 {
+  font-size: 3.25rem;
+}
+
+p {
+  font-size: 1.75rem;
+}
+
+span {
+  color: var(--SECONDARY_BLUE);
+}
+
+.signUp_button {
+  display: inline-block;
+}

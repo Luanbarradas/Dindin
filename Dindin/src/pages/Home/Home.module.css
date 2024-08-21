@@ -1,0 +1,32 @@
+.main_home {
+  margin: auto;
+  height: calc(100vh - 93px);
+  border-radius: 4rem 4rem 0 0;
+  display: flex;
+  background-color: var(--PRIMARY_LIGHT);
+}
+
+.container_description {
+  margin: auto;
+}
+
+.description {
+  height: 500px;
+  width: 1440px;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.table_container {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.container_resume {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 58px;
+}
